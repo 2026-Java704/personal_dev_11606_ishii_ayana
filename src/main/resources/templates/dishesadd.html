@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>食事登録画面</title>
+</head>
+
+<body>
+	<h1>登録</h1>
+	<form action="/result" method="post">
+		<table border="1">
+			<tr th:each="dish:${dishes}">
+				<th th:text="${dish.name}"></th>
+			</tr>
+			<tr>
+				<td>
+					<select name="stapleLength">
+						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+						</option>
+					</select>
+				</td>
+				<td>
+					<select name="sideLength">
+						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+						</option>
+					</select>
+				</td>
+				<td>
+					<select name="mainLength">
+						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+						</option>
+					</select>
+				</td>
+				<td>
+					<select name="milkLength">
+						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+						</option>
+					</select>
+				</td>
+				<td>
+					<select name="fruitLength">
+						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+						</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+
+</html>

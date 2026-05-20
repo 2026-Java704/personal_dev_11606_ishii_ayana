@@ -54,7 +54,7 @@ public class UserController {
 		model.addAttribute("email", email);
 		model.addAttribute("password", password);
 
-		return "redirect:/result";
+		return "redirect:/dishes/add";
 
 	}
 
@@ -72,43 +72,41 @@ public class UserController {
 			@RequestParam(defaultValue = "") String email,
 			@RequestParam(defaultValue = "") String name,
 			@RequestParam(defaultValue = "") String password,
-			@RequestParam(defaultValue = "") String age,
-			@RequestParam(defaultValue = "") String gender,
+			@RequestParam(defaultValue = "") Integer age,
+			@RequestParam(defaultValue = "") Integer gender,
 			Model model) {
 		List<User> user = userRepository.findByEmail(email);
-		List<String> errorList = new ArrayList<>[];
+		List<String> errorList = new ArrayList<>();
 		if (name.length() == 0) {
 			errorList.add("名前は必須です");
 		}
 		if (email.length() == 0) {
 			errorList.add("メールアドレスは必須です");
 		}
-		if (age.length() == 0) {
-			errorList.add("パスワードは必須です");
-		}
-		if (gender.length() == 0) {
+		if (age == null) {
 			errorList.add("年齢は必須です");
 		}
-		if (name.length() == 0) {
+		if (gender == 0) {
 			errorList.add("性別は必須です");
-		} else if (user.size() > 0) {
+		}
+		if (user.size() > 0) {
 			errorList.add("登録済みのメールアドレスです");
 		}
 		if (password.length() == 0) {
 			errorList.add("パスワードは必須です");
 		}
 
-		model.addAttribute(email);
-		model.addAttribute(name);
-		model.addAttribute(password);
-		model.addAttribute(age);
-		model.addAttribute(gender);
+		model.addAttribute("email", email);
+		model.addAttribute("name", name);
+		model.addAttribute("password", password);
+		model.addAttribute("age", age);
+		model.addAttribute("gender", gender);
 		if (errorList.size() > 0) {
 			model.addAttribute("errorList", errorList);
-		}
 
-		return "user";
-		User usersUser = new User(name, email, password, age, gender);
+			return "user";
+		}
+		User users = new User(name, email, password, age, gender);
 		userRepository.save(users);
 		return "redirect:/login";
 

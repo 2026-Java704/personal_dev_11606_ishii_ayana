@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>登録内容一覧画面</title>
+</head>
+
+<body>
+	<h1>登録内容一覧</h1>
+	<table border="1">
+
+		<tr>
+			<th>日付</th>
+
+			<th>主食</th>
+			<th>副菜</th>
+			<th>主菜</th>
+			<th>乳製品</th>
+			<th>果物</th>
+			<th>メモ</th>
+			<th>点数</th>
+			<th>更新</th>
+		</tr>
+		
+		<tr th:each="dish:${dishes}">
+			<td th:text="${dish."></td>
+			<form action="/dishes/{id}/edit" method="post">
+				
+			<td><button>更新</button></td></form>
+			
+		</tr>
+<!--		<tr>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--		</tr>-->
+<!--		<tr>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--		</tr>-->
+<!--		<tr>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--			<td>あ</td>-->
+<!--		</tr>-->
+
+	</table>
+	<p>88点満点</p>
+	
+	<form action="/dishes/add" method="post">
+		<button>新規作成</button>
+	</form>
+	
+		<a href="/logout">ログアウト</a>
+	
+</body>
+
+</html>

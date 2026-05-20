@@ -2,6 +2,8 @@ package com.example.demo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DishRepository extends JpaRepository<Dishes, Integer> {
+import com.example.demo.entity.Dish;
+
+public interface DishRepository extends JpaRepository<Dish, Integer> {
 
 }

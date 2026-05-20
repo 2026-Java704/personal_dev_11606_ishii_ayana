@@ -33,6 +33,14 @@ public class User {
 		this.gender = gender;
 	}
 
+	public User(String name, String email, String password, Integer age, Integer gender) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.age = age;
+		this.gender = gender;
+	}
+
 	public Integer getUserId() {
 		return userId;
 	}
