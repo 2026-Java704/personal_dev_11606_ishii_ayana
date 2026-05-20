@@ -7,18 +7,20 @@
 </head>
 
 <body>
-	<h1>ログイン画面</h1>
-	
-	<span th:text="${message}" style="color:red"></span><br>
-	<span th:text="${message1}" style="color:red"></span><br>
-	<form action="/login" method="post">
-		<input type="text" name="email" placeholder="メールアドレス"th:value="${email}">
-		<br><input type="text" name="password" placeholder="パスワード"th:value="${password}">
-		<br><button>ログイン</button>
-	</form>
-	<form action="/users/add"><button>新規登録</button></form>
+	<header>
+		<h1>ログイン画面</h1>
+	</header>
+	<main>
+		<span th:text="${message}" style="color:red"></span><br>
+		<span th:text="${message1}" style="color:red"></span><br>
+		<form action="/login" method="post">
+			<input type="text" name="email" placeholder="メールアドレス" th:value="${email}">
+			<br><input type="text" name="password" placeholder="パスワード" th:value="${password}">
+			<br><button>ログイン</button>
+		</form>
+		<form action="/users/add"><button>新規登録</button></form>
 
-
+	</main>
 
 
 </body>

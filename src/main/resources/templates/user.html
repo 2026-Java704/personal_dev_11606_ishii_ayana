@@ -7,26 +7,29 @@
 </head>
 
 <body>
-	<h1>新規登録</h1>
-	<ul th:if = ${errorList}>
-		<li th:each="error:${errorList}"th:text="${error}"></li>
-	</ul>
-	<form action="/users/add" method="post">
-		<input type="text" name="email"th:value="${email}" placeholder="メールアドレス">
-		<br><input type="text" name="name"th:value="${name}" placeholder="名前">
-		<br><input type="text" name="password"th:value="${password}" placeholder="パスワード">
-		<br><input type="number" name="age" th:value="${age}"placeholder="年齢">
-		<br> <select name="gender">
-			<option value="0">選択してください</option>
-			<option value="1">男性</option>
-			<option value="2">女性</option>
-			
-		</select>
-		<br><button>登録</button>
-			
+	<header>
+		<h1>新規登録</h1>
+	</header>
+	<main>
+		<ul th:if=${errorList}>
+			<li th:each="error:${errorList}" th:text="${error}"></li>
+		</ul>
+		<form action="/users/add" method="post">
+			<input type="text" name="email" th:value="${email}" placeholder="メールアドレス">
+			<br><input type="text" name="name" th:value="${name}" placeholder="名前">
+			<br><input type="text" name="password" th:value="${password}" placeholder="パスワード">
+			<br><input type="number" name="age" th:value="${age}" placeholder="年齢">
+			<br> <select name="gender">
+				<option value="0">選択してください</option>
+				<option value="1">男性</option>
+				<option value="2">女性</option>
+
+			</select>
+			<br><button>登録</button>
+
 		</form>
 
-
+	</main>
 </body>
 
 </html>

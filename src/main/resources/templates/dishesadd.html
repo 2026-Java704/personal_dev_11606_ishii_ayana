@@ -7,47 +7,72 @@
 </head>
 
 <body>
-	<h1>登録</h1>
-	<form action="/result" method="post">
-		<table border="1">
-			<tr th:each="dish:${dishes}">
-				<th th:text="${dish.name}"></th>
-			</tr>
-			<tr>
-				<td>
-					<select name="stapleLength">
-						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
-						</option>
-					</select>
-				</td>
-				<td>
-					<select name="sideLength">
-						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
-						</option>
-					</select>
-				</td>
-				<td>
-					<select name="mainLength">
-						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
-						</option>
-					</select>
-				</td>
-				<td>
-					<select name="milkLength">
-						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
-						</option>
-					</select>
-				</td>
-				<td>
-					<select name="fruitLength">
-						<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
-						</option>
-					</select>
-				</td>
-			</tr>
-		</table>
-	</form>
-
+	<header>
+		<h1>登録</h1>
+	</header>
+	<main>
+		<form action="/result" method="post">
+			<table border="1">
+				<tr th:each="dish:${dishes}">
+					<th th:text="${dish.name}"></th>
+				</tr>
+				<tr>
+					<th>主食</th>
+					<td>
+						<select name="stapleLength">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>副菜</th>
+					<td>
+						<select name="sideLength">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>主菜</th>
+					<td>
+						<select name="mainLength">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>牛乳・乳製品</th>
+					<td>
+						<select name="milkLength">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>果物</th>
+					<td>
+						<select name="fruitLength">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							</option>
+						</select>
+					</td>
+				</tr>
+				</tr>
+			</table>
+		</form>
+		<!--メモ画面にとぶ-->
+		<form action="/dishes/note" method="post">
+			<button>詳細登録</button>
+		</form>
+		<!--	食事内容一覧画面にとぶ-->
+		<form action="/dishes/result" method="get">
+			<button>登録</button>
+		</form>
+	</main>
 </body>
 
 </html>
