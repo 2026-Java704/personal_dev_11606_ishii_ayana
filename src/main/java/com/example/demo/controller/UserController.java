@@ -53,7 +53,8 @@ public class UserController {
 		}
 		model.addAttribute("email", email);
 		model.addAttribute("password", password);
-
+		//		ユーザーのID登録するためのもの
+		session.setAttribute("userId", user.get(0).getUserId());
 		return "redirect:/dishes/add";
 
 	}

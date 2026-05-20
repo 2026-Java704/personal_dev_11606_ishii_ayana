@@ -26,53 +26,28 @@
 				<th>更新</th>
 			</tr>
 
-			<tr th:each="dish:${dishes}">
-				<td th:text="${dish."></td>
-				<form action="/dishes/{id}/edit" method="post">
-
-					<td><button>更新</button></td>
-				</form>
-
+			<tr th:each="record:${resultList}">
+				<td th:text="${record.recordDate}"></td>
+				<td th:text="${record.stapleFood}"></td>
+				<td th:text="${record.sideDish}"></td>
+				<td th:text="${record.mainDish}"></td>
+				<td th:text="${record.milkDish}"></td>
+				<td th:text="${record.fruitCount}"></td>
+				<td th:text="${record.detailMemo}"></td>
+				<td th:text="${record.achievement}"></td>
+				<td>
+					<form th:action="@{dishes/{id}/edit(id=${record.id})}" method="get">
+						<button>更新</button>
+					</form>
+				</td>
 			</tr>
-			<!--		<tr>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--		</tr>-->
-			<!--		<tr>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--		</tr>-->
-			<!--		<tr>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--			<td>あ</td>-->
-			<!--		</tr>-->
+
 
 		</table>
 		<p>88点満点</p>
 
 		<form action="/dishes/add" method="get">
-			<button>新規作成</button>
+			<button>登録画面へ</button>
 		</form>
 
 		<a href="/logout">ログアウト</a>
