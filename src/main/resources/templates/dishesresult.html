@@ -28,11 +28,27 @@
 
 			<tr th:each="record:${resultList}">
 				<td th:text="${record.recordDate}"></td>
-				<td th:text="${record.stapleFood}"></td>
-				<td th:text="${record.sideDish}"></td>
-				<td th:text="${record.mainDish}"></td>
-				<td th:text="${record.milkDish}"></td>
-				<td th:text="${record.fruitCount}"></td>
+
+				<td><span th:text="${record.stapleFood}"></span><br>
+					<span th:text="${record.stapleFood >= 5 && record.stapleFood <= 7 ? '〇' : '✕'} "></span>
+				</td>
+
+				<td><span th:text="${record.sideDish}"></span><br>
+					<span th:text="${record.sideDish >= 5 && record.sideDish <= 6 ? '〇' : '✕'} "></span>
+				</td>
+
+				<td><span th:text="${record.mainDish}"></span><br>
+					<span th:text="${record.mainDish >= 3 && record.mainDish <= 5 ? '〇' : '✕'} "></span>
+				</td>
+				<td><span th:text="${record.milkDish}"></span><br>
+					<span th:text="${record.milkDish == 2 ? '〇' : '✕'} "></span>
+				</td>
+				<td><span th:text="${record.fruitCount}"></span><br>
+					<span th:text="${record.fruitCount == 2 ? '〇' : '✕'} "></span>
+				</td>
+
+
+				
 				<td th:text="${record.detailMemo}"></td>
 				<td th:text="${record.achievement}"></td>
 				<td>

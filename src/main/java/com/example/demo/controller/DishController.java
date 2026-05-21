@@ -139,6 +139,7 @@ public class DishController {
 
 	private int sumAchievement(Integer stapleFood, Integer sideDish, Integer mainDish, Integer milkDish,
 			Integer fuluitCount) {
+
 		int achievement = 88;
 
 		if (stapleFood >= 5 && stapleFood <= 7) {
