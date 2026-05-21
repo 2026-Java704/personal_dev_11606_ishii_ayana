@@ -36,7 +36,7 @@
 				<td th:text="${record.detailMemo}"></td>
 				<td th:text="${record.achievement}"></td>
 				<td>
-					<form th:action="@{dishes/{id}/edit(id=${record.id})}" method="get">
+					<form th:action="@{/dishes/{id}/edit(id=${record.id})}" method="get">
 						<button>更新</button>
 					</form>
 				</td>

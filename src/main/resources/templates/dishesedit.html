@@ -3,23 +3,34 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>食事登録画面</title>
+	<title>更新画面</title>
 </head>
 
 <body>
 	<header>
-		<h1>登録</h1>
+		<h1>更新</h1>
 	</header>
 	<main>
-		<form action="/dishes/add" method="post">
-			<table border="1">
 
+		<form th:action="@{/dishes/{id}/edit(id=${result.id})}" method="post">
+			<table border="1">
+				<tr>
+					<th>登録ID</th>
+					<td th:text="${result.id}"></td>
+				</tr>
+				<tr>
+					<th>日付</th>
+					<td>
+						<input type="date" name="recordDate" th:value="${result.recordDate}">
+					</td>
+				</tr>
 				<tr>
 					<th>主食</th>
 					<td>
 						<select name="stapleFood" required>
 							<option value="" disabled selected>選択してください</option>
-							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
+								th:selected="${i==result.stapleFood}">
 							</option>
 						</select>
 					</td>
@@ -29,7 +40,8 @@
 					<td>
 						<select name="sideDish" required>
 							<option value="" disabled selected>選択してください</option>
-							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
+								th:selected="${i==result.sideDish}">
 							</option>
 						</select>
 					</td>
@@ -39,7 +51,8 @@
 					<td>
 						<select name="mainDish" required>
 							<option value="" disabled selected>選択してください</option>
-							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
+								th:selected="${i==result.mainDish}">
 							</option>
 						</select>
 					</td>
@@ -49,7 +62,8 @@
 					<td>
 						<select name="milkDish" required>
 							<option value="" disabled selected>選択してください</option>
-							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
+								th:selected="${i==result.milkDish}">
 							</option>
 						</select>
 					</td>
@@ -59,19 +73,28 @@
 					<td>
 						<select name="fruitCount" required>
 							<option value="" disabled selected>選択してください</option>
-							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
+							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
+								th:selected="${i==result.fruitCount}">
 							</option>
 						</select>
 					</td>
 				</tr>
-				
+				<tr>
+					<th>
+						詳細
+					</th>
+					<td>
+						<textarea name="detailMemo" placeholder="詳細"></textarea>
+					</td>
+				</tr>
 			</table>
-			<button type="submit">登録</button>
-			<button formmethod="get" formaction="/dishes/note">詳細登録</button>
+			<button type="submit">更新</button>
 		</form>
 
-		
+
+
 	</main>
+
 </body>
 
 </html>

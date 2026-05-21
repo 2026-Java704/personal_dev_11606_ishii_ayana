@@ -11,9 +11,15 @@
 		<h1>食事内容詳細</h1>
 	</header>
 	<main>
-		<textarea></textarea>
-		<form action="/dishes/result" method="post">
-			<button>登録</button>
+		<form action="/dishes/add" method="post">
+			<input type="hidden" name="stapleFood" th:value="${stapleFood}">
+			<input type="hidden" name="sideDish" th:value="${sideDish}">
+			<input type="hidden" name="mainDish" th:value="${mainDish}">
+			<input type="hidden" name="milkDish" th:value="${milkDish}">
+			<input type="hidden" name="fruitCount" th:value="${fruitCount}">
+		<textarea name="detailMemo"placeholder="詳細"></textarea>
+		
+			<br><button>登録</button>
 		</form>
 	</main>
 </body>

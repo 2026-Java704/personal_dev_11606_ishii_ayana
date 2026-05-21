@@ -1,12 +1,14 @@
 package com.example.demo.controller;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,18 +43,27 @@ public class DishController {
 		return "dishesadd";
 	}
 
+	//食事登録処理（登録ボタン）
 	@PostMapping("/dishes/add")
 	public String add(
-			@RequestParam Integer id,
 			@RequestParam(defaultValue = "") LocalDate recordDate,
-			@RequestParam(defaultValue = "") String stapleFood,
-			@RequestParam(defaultValue = "") String sideDish,
-			@RequestParam(defaultValue = "") String mainDish,
-			@RequestParam(defaultValue = "") String milkDish,
-			@RequestParam(defaultValue = "") String fruitCount,
+			@RequestParam(defaultValue = "") Integer stapleFood,
+			@RequestParam(defaultValue = "") Integer sideDish,
+			@RequestParam(defaultValue = "") Integer mainDish,
+			@RequestParam(defaultValue = "") Integer milkDish,
+			@RequestParam(defaultValue = "") Integer fruitCount,
+			@RequestParam(defaultValue = "") String detailMemo,
 			Model model) {
 		Integer userId = (Integer) session.getAttribute("userId");
-		Result result = new Result(recordDate, stapleFood, sideDish, mainDish, milkDish, fruitCount);
+		Result result = new Result();
+		result.setUserId(userId);
+		result.setRecordDate(LocalDate.now());
+		result.setStapleFood(stapleFood);
+		result.setSideDish(sideDish);
+		result.setMainDish(mainDish);
+		result.setMilkDish(milkDish);
+		result.setFruitCount(fruitCount);
+		result.setDetailMemo(detailMemo);
 
 		int achievement = sumAchievement(
 				stapleFood,
@@ -62,29 +73,133 @@ public class DishController {
 				fruitCount);
 		result.setAchievement(achievement);
 		resultRepository.save(result);
-		return "redirect:/dishresult";
+		return "redirect:/dishes/result";
 	}
-
-	//食事登録内容登録ボタン実行（摂取数選択後、登録）
-	@PostMapping("/dishes/add")
-	public String sent(
-			@RequestParam(defaultValue = "") String dishId,
-			Model model) {
-		model.addAttribute("dishId", dishId);
-
-		return "dishesresult";
-	}
-
-	//	//	登録画面詳細登録ボタン実行
-	//	@PostMapping("/dishes/note")
-	//	public String show() {
-	//		return "dishesnote";
-	//	}
 
 	//	食事詳細（メモ）画面表示
 	@GetMapping("/dishes/note")
-	public String note() {
+	public String memo(
+			@RequestParam(defaultValue = "") Integer stapleFood,
+			@RequestParam(defaultValue = "") Integer sideDish,
+			@RequestParam(defaultValue = "") Integer mainDish,
+			@RequestParam(defaultValue = "") Integer milkDish,
+			@RequestParam(defaultValue = "") Integer fruitCount,
+			Model model) {
+		model.addAttribute("stapleFood", stapleFood);
+		model.addAttribute("sideDish", sideDish);
+		model.addAttribute("mainDish", mainDish);
+		model.addAttribute("milkDish", milkDish);
+		model.addAttribute("fruitCount", fruitCount);
+
 		return "dishesnote";
+	}
+
+	//更新画面表示
+	@GetMapping("/dishes/{id}/edit")
+	public String edit(
+			@PathVariable Integer id, Model model) {
+		Result result = resultRepository.findById(id).get();
+		model.addAttribute("result", result);
+
+		return "dishesedit";
+	}
+
+	//	更新画面処理（更新ボタン）
+	@PostMapping("/dishes/{id}/edit")
+	public String update(
+			@PathVariable Integer id,
+			@RequestParam(defaultValue = "") LocalDate recordDate,
+			@RequestParam(defaultValue = "") Integer stapleFood,
+			@RequestParam(defaultValue = "") Integer sideDish,
+			@RequestParam(defaultValue = "") Integer mainDish,
+			@RequestParam(defaultValue = "") Integer milkDish,
+			@RequestParam(defaultValue = "") Integer fruitCount,
+			@RequestParam(defaultValue = "") String detailMemo) {
+		Result result = resultRepository.findById(id).get();
+		Integer userId = (Integer) session.getAttribute("userId");
+		result.setUserId(userId);
+		result.setRecordDate(recordDate);
+		result.setStapleFood(stapleFood);
+		result.setSideDish(sideDish);
+		result.setMainDish(mainDish);
+		result.setMilkDish(milkDish);
+		result.setFruitCount(fruitCount);
+		result.setDetailMemo(detailMemo);
+		int achievement = sumAchievement(
+				stapleFood,
+				sideDish,
+				mainDish,
+				milkDish,
+				fruitCount);
+		result.setAchievement(achievement);
+		resultRepository.save(result);
+		return "redirect:/dishes/result";
+
+	}
+
+	private int sumAchievement(Integer stapleFood, Integer sideDish, Integer mainDish, Integer milkDish,
+			Integer fuluitCount) {
+		int achievement = 88;
+
+		if (stapleFood >= 5 && stapleFood <= 7) {
+			achievement += 0;
+		} else if (stapleFood == 4 || stapleFood == 8) {
+			achievement -= 4;
+		} else if (stapleFood == 3 || stapleFood == 9) {
+			achievement -= 8;
+		} else if (stapleFood == 2 || stapleFood == 10) {
+			achievement -= 12;
+		} else if (stapleFood == 1) {
+			achievement -= 16;
+		} else if (stapleFood == 0) {
+			achievement -= 28;
+		}
+
+		if (sideDish >= 5 && sideDish <= 6) {
+			achievement += 0;
+		} else if (sideDish == 4 || sideDish == 7) {
+			achievement -= 4;
+		} else if (sideDish == 3 || sideDish == 8) {
+			achievement -= 8;
+		} else if (sideDish == 2 || sideDish == 9) {
+			achievement -= 12;
+		} else if (sideDish == 1 | sideDish == 10) {
+			achievement -= 16;
+		} else if (sideDish == 0) {
+			achievement -= -24;
+		}
+
+		if (mainDish >= 3 && mainDish <= 5) {
+			achievement += 0;
+		} else if (sideDish == 2 || sideDish == 6) {
+			achievement -= 4;
+		} else if (sideDish == 1 || sideDish == 7) {
+			achievement -= 8;
+		} else if (sideDish == 8) {
+			achievement -= 12;
+		} else if (sideDish == 9) {
+			achievement -= 16;
+		} else if (sideDish == 0 || sideDish == 10) {
+			achievement -= 20;
+		}
+
+		if (milkDish == 2) {
+			achievement += 0;
+		} else if (milkDish == 1 || milkDish == 3) {
+			achievement -= 4;
+		} else if (milkDish == 0 || milkDish == 4) {
+			achievement -= 8;
+		}
+
+		if (fuluitCount == 2) {
+			achievement += 0;
+		} else if (fuluitCount == 1 || fuluitCount == 3) {
+			achievement -= 4;
+		} else if (fuluitCount == 0 || fuluitCount == 4) {
+			achievement -= 8;
+		}
+
+		return achievement;
 	}
 
 }
