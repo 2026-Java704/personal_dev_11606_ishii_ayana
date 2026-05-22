@@ -31,7 +31,8 @@ public class DishController {
 	//一覧画面表示
 	@GetMapping("/dishes/result")
 	public String index(Model model) {
-		List<Result> resultList = resultRepository.findAll();
+		Integer userId = (Integer) session.getAttribute("userId");
+		List<Result> resultList = resultRepository.findByUserId(userId);
 		model.addAttribute("resultList", resultList);
 
 		return "dishesresult";
@@ -137,70 +138,146 @@ public class DishController {
 
 	}
 
+	//計算
 	private int sumAchievement(Integer stapleFood, Integer sideDish, Integer mainDish, Integer milkDish,
-			Integer fuluitCount) {
+			Integer fruitCount) {
 
 		int achievement = 88;
 
+		//主食
 		if (stapleFood >= 5 && stapleFood <= 7) {
 			achievement += 0;
+
 		} else if (stapleFood == 4 || stapleFood == 8) {
 			achievement -= 4;
+
 		} else if (stapleFood == 3 || stapleFood == 9) {
 			achievement -= 8;
+
 		} else if (stapleFood == 2 || stapleFood == 10) {
 			achievement -= 12;
+
 		} else if (stapleFood == 1) {
 			achievement -= 16;
+
 		} else if (stapleFood == 0) {
 			achievement -= 28;
+
 		}
 
+		//副菜
 		if (sideDish >= 5 && sideDish <= 6) {
 			achievement += 0;
+
 		} else if (sideDish == 4 || sideDish == 7) {
 			achievement -= 4;
+
 		} else if (sideDish == 3 || sideDish == 8) {
 			achievement -= 8;
+
 		} else if (sideDish == 2 || sideDish == 9) {
 			achievement -= 12;
-		} else if (sideDish == 1 | sideDish == 10) {
+
+		} else if (sideDish == 1 || sideDish == 10) {
 			achievement -= 16;
+
 		} else if (sideDish == 0) {
-			achievement -= -24;
+			achievement -= 24;
+
 		}
 
+		//主菜
 		if (mainDish >= 3 && mainDish <= 5) {
 			achievement += 0;
-		} else if (sideDish == 2 || sideDish == 6) {
+
+		} else if (mainDish == 4 || mainDish == 6) {
 			achievement -= 4;
-		} else if (sideDish == 1 || sideDish == 7) {
+
+		} else if (mainDish == 3 || mainDish == 7) {
 			achievement -= 8;
-		} else if (sideDish == 8) {
+
+		} else if (mainDish == 2 || mainDish == 8) {
 			achievement -= 12;
-		} else if (sideDish == 9) {
+
+		} else if (mainDish == 1 || mainDish == 9) {
 			achievement -= 16;
-		} else if (sideDish == 0 || sideDish == 10) {
+
+		} else {
 			achievement -= 20;
 		}
 
+		//乳製品
 		if (milkDish == 2) {
 			achievement += 0;
+
 		} else if (milkDish == 1 || milkDish == 3) {
 			achievement -= 4;
-		} else if (milkDish == 0 || milkDish == 4) {
+
+		} else {
 			achievement -= 8;
 		}
 
-		if (fuluitCount == 2) {
+		//果物
+
+		if (fruitCount == 2) {
 			achievement += 0;
-		} else if (fuluitCount == 1 || fuluitCount == 3) {
+
+		} else if (fruitCount == 1 || fruitCount == 3) {
 			achievement -= 4;
-		} else if (fuluitCount == 0 || fuluitCount == 4) {
+
+		} else {
 			achievement -= 8;
 		}
 
+		//主食
+		//		if (stapleFood >= 5 && stapleFood <= 7) {
+		//			achievement -= 0;
+		//		} else if (stapleFood < 5) {
+		//			achievement -= (5 - stapleFood) * 4;
+		//		} else if (stapleFood > 7) {
+		//			achievement -= (stapleFood - 7) * 4;
+		//		} else if (stapleFood == 0) {
+		//			achievement -= 28;
+		//
+		//		}
+		//		//副菜
+		//		if (sideDish >= 5 && sideDish <= 6) {
+		//			achievement -= 0;
+		//		} else if (sideDish < 5) {
+		//			achievement -= (5 - sideDish) * 4;
+		//		} else if (sideDish > 6) {
+		//			achievement -= (sideDish - 6) * 4;
+		//		} else if (sideDish == 0) {
+		//			achievement -= 24;
+		//
+		//		}
+		//		//主菜
+		//		if (mainDish >= 3 && mainDish <= 5) {
+		//			achievement -= 0;
+		//		} else if (mainDish < 3) {
+		//			achievement -= (3 - mainDish) * 4;
+		//		} else if (mainDish > 5) {
+		//			achievement -= (mainDish - 5) * 4;
+		//		} else if (mainDish == 0) {
+		//			achievement -= 20;
+		//
+		//		}
+		//		//		乳製品
+		//		if (milkDish == 2) {
+		//			achievement += 0;
+		//		} else if (milkDish == 1 || milkDish == 3) {
+		//			achievement -= 4;
+		//		} else {
+		//			achievement -= 8;
+		//		}
+		//		//果実
+		//		if (fruitCount == 2) {
+		//			achievement += 0;
+		//		} else if (fruitCount == 1 || fruitCount == 3) {
+		//			achievement -= 4;
+		//		} else {
+		//			achievement -= 8;
+		//		}
 		return achievement;
 	}
-
 }

@@ -1,0 +1,79 @@
+header {
+
+	font-size: 1.6rem;
+	background: linear-gradient(135deg, #FFCC33	 0%, #FF4F50 100%);
+	color: #fff;
+	padding: 12px 18px;
+	border-radius: 4px;
+	margin-bottom: 20px;
+}
+
+h1 {
+	color: #550000;
+	display: flex;
+	justify-content: center;
+	/* 水平方向の中央寄せ */
+	align-items: center;
+	/* 垂直方向の中央寄せ */
+	height: 100px;
+}
+
+body {
+	background-color: 	#FFFFDD;
+	text-align: center;
+}
+
+.login-container {
+	background-color: #fff;
+	padding: 40px;
+	border-radius: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.character {
+	width: 150px;
+	margin-bottom: 20px;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+input {
+	margin: 2px;
+	width: 50%;
+	padding: 10px 15px;
+	border: 2px solid #FFCCCC	;
+	border-radius: 25px;
+	font-size: 16px;
+}
+
+input::placeholder {
+	color: #FF9966;
+}
+
+input:focus {
+	outline: none;
+	border-color: #FF9966;
+	box-shadow: 0 0 5px #FF9966(255, 192, 203, 0.5);
+}
+
+button {
+	
+	width: 50%;
+	margin: 2px;
+	padding: 5px 20px;
+	background-color:#FF6633		;
+	border: none;
+	border-radius: 25px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+button:hover {
+	background-color: #FF0000;
+}
