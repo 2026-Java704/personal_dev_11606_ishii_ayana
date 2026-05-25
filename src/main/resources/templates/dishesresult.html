@@ -25,6 +25,7 @@
 				<th>メモ</th>
 				<th>点数</th>
 				<th>更新</th>
+				<th>削除</th>
 			</tr>
 
 			<tr th:each="record:${resultList}">
@@ -55,6 +56,11 @@
 				<td>
 					<form th:action="@{/dishes/{id}/edit(id=${record.id})}" method="get">
 						<button class="edit-button">更新</button>
+					</form>
+				</td>
+				<td>
+					<form th:action="@{/dishes/{id}/delete(id=${record.id})}" method="post">
+						<button class="delete-button">削除</button>
 					</form>
 				</td>
 			</tr>

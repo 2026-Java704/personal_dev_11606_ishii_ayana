@@ -138,6 +138,13 @@ public class DishController {
 
 	}
 
+	@PostMapping("/dishes/{id}/delete")
+	public String delete(
+			@PathVariable Integer id, Model model) {
+		resultRepository.deleteById(id);
+		return "redirect:/dishes/result";
+	}
+
 	//計算
 	private int sumAchievement(Integer stapleFood, Integer sideDish, Integer mainDish, Integer milkDish,
 			Integer fruitCount) {
@@ -229,55 +236,6 @@ public class DishController {
 			achievement -= 8;
 		}
 
-		//主食
-		//		if (stapleFood >= 5 && stapleFood <= 7) {
-		//			achievement -= 0;
-		//		} else if (stapleFood < 5) {
-		//			achievement -= (5 - stapleFood) * 4;
-		//		} else if (stapleFood > 7) {
-		//			achievement -= (stapleFood - 7) * 4;
-		//		} else if (stapleFood == 0) {
-		//			achievement -= 28;
-		//
-		//		}
-		//		//副菜
-		//		if (sideDish >= 5 && sideDish <= 6) {
-		//			achievement -= 0;
-		//		} else if (sideDish < 5) {
-		//			achievement -= (5 - sideDish) * 4;
-		//		} else if (sideDish > 6) {
-		//			achievement -= (sideDish - 6) * 4;
-		//		} else if (sideDish == 0) {
-		//			achievement -= 24;
-		//
-		//		}
-		//		//主菜
-		//		if (mainDish >= 3 && mainDish <= 5) {
-		//			achievement -= 0;
-		//		} else if (mainDish < 3) {
-		//			achievement -= (3 - mainDish) * 4;
-		//		} else if (mainDish > 5) {
-		//			achievement -= (mainDish - 5) * 4;
-		//		} else if (mainDish == 0) {
-		//			achievement -= 20;
-		//
-		//		}
-		//		//		乳製品
-		//		if (milkDish == 2) {
-		//			achievement += 0;
-		//		} else if (milkDish == 1 || milkDish == 3) {
-		//			achievement -= 4;
-		//		} else {
-		//			achievement -= 8;
-		//		}
-		//		//果実
-		//		if (fruitCount == 2) {
-		//			achievement += 0;
-		//		} else if (fruitCount == 1 || fruitCount == 3) {
-		//			achievement -= 4;
-		//		} else {
-		//			achievement -= 8;
-		//		}
 		return achievement;
 	}
 }
