@@ -21,6 +21,7 @@ h1 {
 
 body {
 	background-color: #FFFFEE;
+	text-align: center;
 }
 
 .login-container {
@@ -164,4 +165,8 @@ table td {
 		border-color: #FF9966;
 		box-shadow: 0 0 5px #99CC66(255, 192, 203, 0.5);
 	}
+img{
+	width: 50%;
+	
+}
 
