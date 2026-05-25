@@ -6,21 +6,23 @@
 	<title>食事登録画面</title>
 	<link rel="stylesheet" href="/css/add.css">
 </head>
+<header>
+	<h1>食事登録</h1>
+</header>
 
 <body>
-	<header>
-		<p>食事管理</p>
-	</header>
-	<h1>食事登録</h1>
+
+
 	<main>
-		
+
+
 		<form action="/dishes/add" method="post">
 			<table border="1">
 
 				<tr>
 					<th>主食</th>
 					<td>
-						<select name="stapleFood" required>
+						<select name="stapleFood" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
 							</option>
@@ -30,7 +32,7 @@
 				<tr>
 					<th>副菜</th>
 					<td>
-						<select name="sideDish" required>
+						<select name="sideDish" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
 							</option>
@@ -40,7 +42,7 @@
 				<tr>
 					<th>主菜</th>
 					<td>
-						<select name="mainDish" required>
+						<select name="mainDish" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
 							</option>
@@ -50,7 +52,7 @@
 				<tr>
 					<th>牛乳・乳製品</th>
 					<td>
-						<select name="milkDish" required>
+						<select name="milkDish" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
 							</option>
@@ -60,20 +62,22 @@
 				<tr>
 					<th>果物</th>
 					<td>
-						<select name="fruitCount" required>
+						<select name="fruitCount" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'">
 							</option>
 						</select>
 					</td>
 				</tr>
-				
-			</table>
-			<button type="submit">登録</button>
-			<button formmethod="get" formaction="/dishes/note">詳細登録</button>
-		</form>
 
-		
+			</table>
+			<button formmethod="get" formaction="/dishes/note" class="note-button">詳細登録</button>
+			<button type="submit" class="add-button">登録</button>
+
+		</form>
+		<img src="index-3.pdf" alt="食事バランスガイド">
+
+
 	</main>
 </body>
 

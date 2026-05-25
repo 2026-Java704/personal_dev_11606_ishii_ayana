@@ -1,7 +1,7 @@
 header {
 
-	font-size: 1.6rem;
-	background: linear-gradient(135deg, #99CC00 0%, #99CC99 100%);
+	font-size: 1.0rem;
+	background: linear-gradient(135deg, #FF4F50	 0%, #FFCC33 100%);
 	color: #fff;
 	padding: 12px 18px;
 	border-radius: 4px;
@@ -9,17 +9,25 @@ header {
 }
 
 h1 {
-	color: #006600;
-		display: flex;
-		justify-content: center;
-		/* 水平方向の中央寄せ */
-		align-items: center;
-		/* 垂直方向の中央寄せ */
-		height: 100px;
+	color: white;
+	display: flex;
+	justify-content: flex-start;
+}
+
+p {
+	font-size: 2.0rem;
+	color: #FF6600;
+	display: flex;
+	justify-content: center;
+	/* 水平方向の中央寄せ */
+	align-items: center;
+	/* 垂直方向の中央寄せ */
+	height: 30px;
 }
 
 body {
-	background-color: #F3FFD8;
+	background-color: #FFFFEE;
+	text-align: center;
 }
 
 .login-container {
@@ -40,62 +48,73 @@ body {
 }
 
 input {
-	margin: 2px;
+	margin: 7px;
 	width: 50%;
 	padding: 10px 15px;
-	border: 2px solid #99CC66;
+	border: 3px solid #FFCCCC;
 	border-radius: 25px;
 	font-size: 16px;
 }
 
 input::placeholder {
-	color: #99CC66;
+	color: #FF9966;
 }
 
 input:focus {
 	outline: none;
-	border-color: #669900;
+	border-color: #FF9966;
 	box-shadow: 0 0 5px #99CC66(255, 192, 203, 0.5);
 }
 
 .gender {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	margin-bottom: 50px;
 }
 
 .gender::after {
-    position: absolute;
-    right: 15px;
-    width: 10px;
-    height: 7px;
-    background-color: #535353;
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
-    content: '';
-    pointer-events: none;
+	position: absolute;
+	right: 15px;
+	width: 10px;
+	height: 7px;
+	background-color: #535355;
+	clip-path: polygon(0 0, 100% 0, 50% 100%);
+	content: '';
+	pointer-events: none;
 }
-.gender:placeholder{
+
+.gender:placeholder {
 	color: #99CC66;
 }
+
 .gender select {
-    appearance: none;
-    min-width: 230px;
-    height: 2.8em;
-    padding: .4em calc(.8em + 30px) .4em .8em;
-    border: 1px solid #99CC66	;
-    border-radius: 3px;
-    background-color: #fff;
-    color: #003300	;
-    font-size: 1em;
-    cursor: pointer;
+	margin-top: 5px;
+	appearance: none;
+	min-width: 230px;
+	height: 2.8em;
+	padding: .4em calc(.8em + 30px) .4em .8em;
+	border: 1px solid #f0d9b5;
+	border-radius: 3px;
+	background-color: #fff;
+	color: #003300;
+	font-size: 1em;
+	cursor: pointer;
+	
+}
+
+.gender:focus {
+	outline: none;
+	border-color: #FF9966;
+	box-shadow: 0 0 5px #99CC66(255, 192, 203, 0.5);
 }
 
 button {
-	
-	width: 50%;
+	margin-top: 40px;
+	width: 15%;
 	margin: 2px;
 	padding: 5px 20px;
-	background-color:#669900;
+	background-color: #ff8a00;
 	border: none;
 	border-radius: 25px;
 	color: #fff;
@@ -103,8 +122,9 @@ button {
 	font-weight: bold;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
+
 }
 
 button:hover {
-	background-color: #006600;
+	background-color: #ffa64d;
 }

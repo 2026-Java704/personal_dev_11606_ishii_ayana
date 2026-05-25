@@ -6,21 +6,22 @@
 	<title>ログイン画面</title>
 	<link rel="stylesheet" href="/css/login.css">
 </head>
+<header>
+	<h1>食事管理 </h1>
+</header>
 
 <body>
-	<header>
-		<p>食事管理</p>
-	</header>
-	<h1>ログイン画面 </h1>
+	<p>ログイン画面</p>
+	
 	<main>
 		<span th:text="${message}" style="color:red"></span><br>
 		<span th:text="${message1}" style="color:red"></span><br>
 		<form action="/login" method="post">
 			<input type="text" name="email" placeholder="メールアドレス" th:value="${email}">
 			<br><input type="text" name="password" placeholder="パスワード" th:value="${password}">
-			<br><button>ログイン</button>
+			<br><button class="login-button">ログイン</button>
 		</form>
-		<form action="/users/add"><button>新規登録</button></form>
+		<form action="/users/add"><button class="new-button">新規登録</button></form>
 
 	</main>
 

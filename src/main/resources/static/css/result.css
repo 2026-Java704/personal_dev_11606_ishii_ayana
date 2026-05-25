@@ -1,29 +1,31 @@
-.memo{
+
+
+
+.memo {
 	white-space: pre-wrap;
 }
 
 header {
 
-	font-size: 1.6rem;
-	background: linear-gradient(135deg, #99CC00 0%, #99CC99 100%);
+	font-size: 1.0rem;
+	background: linear-gradient(135deg, #FF4F50	 0%, #FFCC33 100%);
 	color: #fff;
 	padding: 12px 18px;
 	border-radius: 4px;
 	margin-bottom: 20px;
+
+
 }
 
 h1 {
-	color: #006600;
+	color: white;
 	display: flex;
-	justify-content: center;
-	/* 水平方向の中央寄せ */
-	align-items: center;
-	/* 垂直方向の中央寄せ */
-	height: 100px;
+	justify-content: flex-start;
+/*	height: 60px;*/
 }
 
 body {
-	background-color: #F3FFD8;
+	background-color: #FFFFEE;
 }
 
 .login-container {
@@ -62,12 +64,11 @@ input:focus {
 	box-shadow: 0 0 5px #99CC66(255, 192, 203, 0.5);
 }
 
-button {
-	
-	width: 50%;
-	margin: 2px;
+.edit-button {
+	width: 100%;
+	margin: auto;
 	padding: 5px 20px;
-	background-color:#669900;
+	background-color: #4a90e2;
 	border: none;
 	border-radius: 25px;
 	color: #fff;
@@ -77,30 +78,205 @@ button {
 	transition: background-color 0.3s ease;
 }
 
-button:hover {
-	background-color: #006600;
+
+
+.add-button {
+	
+	display: block;
+	width: 100%;
+	margin:0 auto;
+	padding: 5px 20px;
+	background-color: #ff8a00;
+	border: none;
+	border-radius: 25px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	height: 50px;
 }
-table{
-	table{
-	  border-collapse:separate;
-	  border-spacing: 5px;
-	  width: 100%;
-	}
-
-	table th,table td{
-	  border-radius: 5px;
-	  text-align: center;
-	  padding: 10px 0;
-	}
-
-	table th{
-	  background-color: #c79852;
-	  color: white;
-	  border:solid 1px #927141;
-	}
-
-	table td{
-	  background-color: #e4d4bc;
-	  border:solid 1px #af9d85;
-	}
+p{
+	margin-left: auto;
+	margin-right: 98px;
+	width: fit-content;
 }
+.edit-button:hover {
+	background-color: #66CCFF	;
+	text-align: center;}
+
+.add-button:hover {
+	background-color: #ffa64d;
+	text-align: center;
+}
+
+.andright{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.link{
+	margin-left: 20px;
+}
+	
+
+table {
+/*	display: flex;*/
+margin: 0 auto; 
+	justify-content: center;
+	width: 90%;
+	text-align: center;
+	border-collapse: collapse;
+	border-spacing: 0;
+	background: #ffffff;
+}
+
+table tr:nth-child(2n+1) {
+	background: #fff8ed;
+}
+
+table th {
+	padding: 10px;
+	border: solid 1px #f0d9b5;
+	background: #FFe8c2;
+	color: #333333;
+}
+
+table td {
+	padding: 10px;
+	border: solid 1px #f0d9b5;
+}
+
+/*table{*/
+
+/*	  border-collapse:separate;*/
+/*	  border-spacing: 5px;*/
+/*	  width: 50%;*/
+/*	  margin: auto;*/
+/*	}*/
+
+/*	table th,table td{*/
+/*	  border-radius: 5px;*/
+/*	  text-align: center;*/
+/*	  padding: 10px 0;*/
+/*	}*/
+
+/*	table th{*/
+/*	  background-color: #fff3e0;*/
+/*	  color: #333333;*/
+/*	  border:solid 1px #927141;*/
+/*	}*/
+
+/*	table td{*/
+/*	  background-color: white;*/
+/*	  border:solid 1px black;*/
+/*	}*/
+
+
+/*.memo{*/
+/*	white-space: pre-wrap;*/
+/*}*/
+
+/*header {*/
+
+/*	font-size: 1.6rem;*/
+/*	background: linear-gradient(135deg, #99CC00 0%, #99CC99 100%);*/
+/*	color: #fff;*/
+/*	padding: 12px 18px;*/
+/*	border-radius: 4px;*/
+/*	margin-bottom: 20px;*/
+/*}*/
+
+/*h1 {*/
+/*	color: #006600;*/
+/*	display: flex;*/
+/*	justify-content: center;*/
+/*	 水平方向の中央寄せ */
+/*	align-items: center;*/
+/*	 垂直方向の中央寄せ */
+/*	height: 100px;*/
+/*}*/
+
+/*body {*/
+/*	background-color: #F3FFD8;*/
+/*}*/
+
+/*.login-container {*/
+/*	background-color: #fff;*/
+/*	padding: 40px;*/
+/*	border-radius: 20px;*/
+/*	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*	text-align: center;*/
+/*}*/
+
+/*.character {*/
+/*	width: 150px;*/
+/*	margin-bottom: 20px;*/
+/*}*/
+
+/*.form-group {*/
+/*	margin-bottom: 15px;*/
+/*}*/
+
+/*input {*/
+/*	margin: 2px;*/
+/*	width: 50%;*/
+/*	padding: 10px 15px;*/
+/*	border: 2px solid #99CC66;*/
+/*	border-radius: 25px;*/
+/*	font-size: 16px;*/
+/*}*/
+
+/*input::placeholder {*/
+/*	color: #99CC66;*/
+/*}*/
+
+/*input:focus {*/
+/*	outline: none;*/
+/*	border-color: #669900;*/
+/*	box-shadow: 0 0 5px #99CC66(255, 192, 203, 0.5);*/
+/*}*/
+
+/*button {*/
+	
+/*	width: 50%;*/
+/*	margin: 2px;*/
+/*	padding: 5px 20px;*/
+/*	background-color:#669900;*/
+/*	border: none;*/
+/*	border-radius: 25px;*/
+/*	color: #fff;*/
+/*	font-size: 16px;*/
+/*	font-weight: bold;*/
+/*	cursor: pointer;*/
+/*	transition: background-color 0.3s ease;*/
+/*}*/
+
+/*button:hover {*/
+/*	background-color: #006600;*/
+/*}*/
+/*table{*/
+/*	table{*/
+/*	  border-collapse:separate;*/
+/*	  border-spacing: 5px;*/
+/*	  width: 100%;*/
+/*	}*/
+
+/*	table th,table td{*/
+/*	  border-radius: 5px;*/
+/*	  text-align: center;*/
+/*	  padding: 10px 0;*/
+/*	}*/
+
+/*	table th{*/
+/*	  background-color: #c79852;*/
+/*	  color: white;*/
+/*	  border:solid 1px #927141;*/
+/*	}*/
+
+/*	table td{*/
+/*	  background-color: #e4d4bc;*/
+/*	  border:solid 1px #af9d85;*/
+/*	}*/
+/*}*/

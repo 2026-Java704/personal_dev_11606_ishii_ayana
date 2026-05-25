@@ -9,9 +9,9 @@
 
 <body>
 	<header>
-		<p>食事管理</p>
+		<h1>食事管理</h1>
 	</header>
-	<h1>新規登録</h1>
+	<p>新規登録</p>
 	<main>
 		<ul th:if=${errorList}>
 			<li th:each="error:${errorList}" th:text="${error}"></li>

@@ -1,25 +1,32 @@
 header {
 
-	font-size: 1.6rem;
-	background: linear-gradient(135deg, #FFCC33	 0%, #FF4F50 100%);
+	font-size: 1.0rem;
+	background: linear-gradient(135deg, #FF4F50 0%, #FFCC33 100%);
 	color: #fff;
 	padding: 12px 18px;
 	border-radius: 4px;
-	margin-bottom: 20px;
+	margin-bottom: 50px;
 }
 
 h1 {
-	color: #550000;
+	color: white;
+	display: flex;
+	justify-content: flex-start;
+}
+
+p {
+	font-size: 2.0rem;
+	color: #FF6600;
 	display: flex;
 	justify-content: center;
 	/* 水平方向の中央寄せ */
 	align-items: center;
 	/* 垂直方向の中央寄せ */
-	height: 100px;
+	height: 30px;
 }
 
 body {
-	background-color: 	#FFFFDD;
+	background-color: #FFFFEE;
 	text-align: center;
 }
 
@@ -44,9 +51,10 @@ input {
 	margin: 2px;
 	width: 50%;
 	padding: 10px 15px;
-	border: 2px solid #FFCCCC	;
+	border: 3px solid #FFCCCC;
 	border-radius: 25px;
 	font-size: 16px;
+	margin-bottom: 3px;
 }
 
 input::placeholder {
@@ -59,12 +67,11 @@ input:focus {
 	box-shadow: 0 0 5px #FF9966(255, 192, 203, 0.5);
 }
 
-button {
-	
-	width: 50%;
-	margin: 2px;
+.login-button {
+	width: 13%;
+	margin: auto;
 	padding: 5px 20px;
-	background-color:#FF6633		;
+	background-color: #669900;
 	border: none;
 	border-radius: 25px;
 	color: #fff;
@@ -72,8 +79,29 @@ button {
 	font-weight: bold;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
+	margin-top: 60px;
 }
 
-button:hover {
-	background-color: #FF0000;
+.new-button {
+
+	width: 13%;
+	margin: 2px;
+	padding: 5px 20px;
+	background-color: #ff8a00;
+	border: none;
+	border-radius: 25px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	margin-top: 10px;
+}
+
+.login-button:hover {
+	background-color: #66CC66;
+}
+
+.new-button:hover {
+	background-color: #ffa64d;
 }

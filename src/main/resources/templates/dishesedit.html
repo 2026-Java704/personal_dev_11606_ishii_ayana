@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>更新画面</title>
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/edit.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 				<tr>
 					<th>主食</th>
 					<td>
-						<select name="stapleFood" required>
+						<select name="stapleFood" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
 								th:selected="${i==result.stapleFood}">
@@ -39,7 +39,7 @@
 				<tr>
 					<th>副菜</th>
 					<td>
-						<select name="sideDish" required>
+						<select name="sideDish" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
 								th:selected="${i==result.sideDish}">
@@ -50,7 +50,7 @@
 				<tr>
 					<th>主菜</th>
 					<td>
-						<select name="mainDish" required>
+						<select name="mainDish" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
 								th:selected="${i==result.mainDish}">
@@ -61,7 +61,7 @@
 				<tr>
 					<th>牛乳・乳製品</th>
 					<td>
-						<select name="milkDish" required>
+						<select name="milkDish" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
 								th:selected="${i==result.milkDish}">
@@ -72,7 +72,7 @@
 				<tr>
 					<th>果物</th>
 					<td>
-						<select name="fruitCount" required>
+						<select name="fruitCount" required id="pulldown">
 							<option value="" disabled selected>選択してください</option>
 							<option th:each="i:${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
 								th:selected="${i==result.fruitCount}">

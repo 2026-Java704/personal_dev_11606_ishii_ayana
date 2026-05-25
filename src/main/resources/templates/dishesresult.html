@@ -49,12 +49,12 @@
 				</td>
 
 
-				
+
 				<td class="memo" th:text="${record.detailMemo}"></td>
 				<td th:text="${record.achievement}"></td>
 				<td>
 					<form th:action="@{/dishes/{id}/edit(id=${record.id})}" method="get">
-						<button>更新</button>
+						<button class="edit-button">更新</button>
 					</form>
 				</td>
 			</tr>
@@ -63,11 +63,13 @@
 		</table>
 		<p>88点満点</p>
 
-		<form action="/dishes/add" method="get">
-			<button>登録画面へ</button>
-		</form>
+		<div class="andright">
+			<form action="/dishes/add" method="get">
+				<button class="add-button">登録画面へ</button>
+			</form>
 
-		<a href="/logout">ログアウト</a>
+			<a href="/logout" class="link">ログアウト</a>
+		</div>
 	</main>
 </body>
 
