@@ -30,9 +30,18 @@ public class DishController {
 
 	//一覧画面表示
 	@GetMapping("/dishes/result")
-	public String index(Model model) {
+	public String index(@RequestParam(defaultValue = "") LocalDate recordDate,
+			Model model) {
+
 		Integer userId = (Integer) session.getAttribute("userId");
 		List<Result> resultList = resultRepository.findByUserId(userId);
+		resultRepository.findByRecordDate(recordDate);
+
+		if (recordDate == null) {
+			resultList = resultRepository.findAll();
+		} else {
+			resultList = resultRepository.findByRecordDate(recordDate);
+		}
 		model.addAttribute("resultList", resultList);
 
 		return "dishesresult";
@@ -143,6 +152,15 @@ public class DishController {
 			@PathVariable Integer id, Model model) {
 		resultRepository.deleteById(id);
 		return "redirect:/dishes/result";
+	}
+
+	@GetMapping("/dishes/search")
+	public String search(
+			@RequestParam LocalDate recordDate,
+			Model model) {
+
+		return "dishesresult";
+
 	}
 
 	//計算
