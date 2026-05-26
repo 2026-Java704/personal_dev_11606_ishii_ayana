@@ -37,15 +37,15 @@ public class DishController {
 		List<Result> resultList = resultRepository.findByUserId(userId);
 		resultRepository.findByRecordDate(recordDate);
 
-		if (recordDate == null) {
-			resultList = resultRepository.findAll();
-		} else {
+		if (recordDate != null) {
+
 			resultList = resultRepository.findByRecordDate(recordDate);
 		}
 
 		model.addAttribute("resultList", resultList);
 
 		return "dishesresult";
+
 	}
 
 	//	食事登録（プルダウン）画面表示
