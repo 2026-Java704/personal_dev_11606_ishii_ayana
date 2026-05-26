@@ -12,4 +12,6 @@ public interface ResultRepository extends JpaRepository<Result, Integer> {
 
 	List<Result> findByRecordDate(LocalDate recordDate);
 
+	List<Result> findAllByOrderByRecordDateDesc();
+
 }

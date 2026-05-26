@@ -91,7 +91,7 @@ public class Result {
 
 	public Result(Integer stapleFood, Integer sideDish, Integer mainDish, Integer milkDish, Integer fruitCount,
 			Integer achievement) {
-		super();
+
 		this.stapleFood = stapleFood;
 		this.sideDish = sideDish;
 		this.mainDish = mainDish;

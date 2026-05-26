@@ -42,6 +42,7 @@ public class DishController {
 		} else {
 			resultList = resultRepository.findByRecordDate(recordDate);
 		}
+
 		model.addAttribute("resultList", resultList);
 
 		return "dishesresult";
@@ -154,13 +155,11 @@ public class DishController {
 		return "redirect:/dishes/result";
 	}
 
-	@GetMapping("/dishes/search")
-	public String search(
-			@RequestParam LocalDate recordDate,
-			Model model) {
-
+	@GetMapping("/dishes/sort")
+	public String sort(Model model) {
+		List<Result> resultList = resultRepository.findAllByOrderByRecordDateDesc();
+		model.addAttribute("resultList", resultList);
 		return "dishesresult";
-
 	}
 
 	//計算
