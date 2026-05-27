@@ -33,18 +33,36 @@ public class DishController {
 	public String index(@RequestParam(defaultValue = "") LocalDate recordDate,
 			Model model) {
 
-		Integer userId = (Integer) session.getAttribute("userId");
-		List<Result> resultList = resultRepository.findByUserId(userId);
-		resultRepository.findByRecordDate(recordDate);
-
+		//		Integer sessionUserId = (Integer) session.getAttribute("userId");
+		//		List<Result> resultList = resultRepository.findByUserId(userId);
+		//		resultRepository.findByUserIdAndRecordDate(sessionUserId, recordDate);
+		//
+		//		if (recordDate != null) {
+		//
+		//			resultList = resultRepository.findByUserIdAndRecordDate(recordDate);
+		//		}
+		//
+		//		model.addAttribute("resultList", resultList);
+		//
+		//		return "dishesresult";
+		Integer sessionUserId = (Integer) session.getAttribute("userId");
+		if (sessionUserId == null) {
+			return "redirect:/login";
+		}
+		List<Result> list;
 		if (recordDate != null) {
-
-			resultList = resultRepository.findByRecordDate(recordDate);
+			list = resultRepository.findByUserIdAndRecordDate(sessionUserId, recordDate);
+		} else {
+			list = resultRepository.findByUserId(sessionUserId);
 		}
 
-		model.addAttribute("resultList", resultList);
-
-		return "dishesresult";
+		// 2. 絞り込んだ「後」のリストをセット（これで平均値が正しく計算される）
+		//		dishes.setResult(list);
+		//
+		//		User user = userRepository.findById(sessionUserId).orElse(null);
+		model.addAttribute("recordDate", recordDate);
+		model.addAttribute("resultList", list);
+		return "dishesResult";
 
 	}
 
